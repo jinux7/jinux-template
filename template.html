@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>template</title>
+	<script src="./template.js"></script>
+</head>
+<body>
+	<div id="app">123</div>
+</body>
+<script>
+	var data = [{
+		"name": "小明",
+		"age": 15
+		},
+		{
+		"name": "小红",
+		"age": 14
+		},
+		{
+		"name": "小军",
+		"age": 16
+		},
+	]
+	var tpl = '	<%for(var i=0; i<2; i++){%>\
+				<%=data.name%>同学，今年<%=data.age%>岁了。\
+				<%}%>'
+	var arr = [];
+	data.map((item,index)=>{
+		arr.push(jinuxTemplate(tpl, item)+'<br/>');
+	});
+	document.querySelector('#app').innerHTML = arr.join('');
+	console.log(arr);
+</script>
+</html>
